@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Keep the example env committed
+!.env.example
+
+# Next.js auto-generated agent rule files
+/AGENTS.md
+/CLAUDE.md
