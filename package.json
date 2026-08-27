@@ -8,7 +8,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "verify": "tsx tests/verify.ts",
-    "test": "tsx tests/verify.ts"
+    "verify:roles": "tsx tests/roleIsolation.ts",
+    "test": "tsx tests/verify.ts && tsx tests/roleIsolation.ts"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.6",

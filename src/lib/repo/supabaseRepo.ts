@@ -58,10 +58,13 @@ export class SupabaseRepo implements Repo {
 
   async init(): Promise<void> {
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    // Supabase renamed the anon key to the "publishable key"; accept either.
+    const key =
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
     if (!url || !key) {
       throw new Error(
-        'Supabase backend selected but NEXT_PUBLIC_SUPABASE_URL / _ANON_KEY are not set.',
+        'Supabase backend selected but NEXT_PUBLIC_SUPABASE_URL / _ANON_KEY (or _PUBLISHABLE_KEY) are not set.',
       );
     }
     this.client = createClient(url, key, { auth: { persistSession: false } });

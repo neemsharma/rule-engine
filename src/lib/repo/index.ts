@@ -15,6 +15,11 @@ export function getRepo(): Promise<Repo> {
       await repo.init();
       return repo;
     })();
+    // Don't cache a failed init: otherwise a bad config poisons the process and
+    // every later request fails even once the config is corrected.
+    cached.catch(() => {
+      cached = null;
+    });
   }
   return cached;
 }
