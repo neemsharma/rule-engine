@@ -75,7 +75,9 @@ derivability) → annotated candidate set. The five checks run as indexed
 (GAP 5). Permissions are compiled once per session into an O(1) lookup.
 
 Full design, BFS rationale, filter ordering, and every resolved ambiguity are in
-**[`docs/architecture.md`](docs/architecture.md)**.
+**[`docs/architecture.md`](docs/architecture.md)**. Where the clinical data came
+from (all synthetic, no PHI) is documented in
+**[`docs/data_sources.md`](docs/data_sources.md)**.
 
 ## Project structure
 
@@ -91,7 +93,7 @@ src/
     repo/                       Repo contract · pgliteRepo · supabaseRepo · whereClause
     types.ts
 supabase/schema.sql · seed.sql  shared by both backends
-docs/architecture.md
+docs/architecture.md · data_sources.md
 tests/verify.ts
 ```
 
